@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Recognition</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Light gray background color */
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background for container */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+        h1 {
+            color: #333333; /* Dark gray heading color */
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input[type="file"] {
+            display: none; /* Hide the file input field */
+        }
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green button color */
+            color: white;
+            border-radius: 5px;
+            border: none;
+            transition: background-color 0.3s;
+        }
+        .custom-file-upload:hover {
+            background-color: #45a049; /* Darker green color on hover */
+        }
+        #selected-image {
+            margin-top: 20px;
+            display: none; /* Initially hide the selected image */
+            max-width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cricketers Facial Recognition</h1>
+        <form id="upload-form" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file-upload" class="custom-file-upload">Choose Image</label>
+                <input type="file" id="file-upload" name="image_path" accept="image/*" required onchange="previewImage(event)">
+            </div>
+            <img id="selected-image" src="#" alt="Selected Image">
+            <button type="submit">Check</button>
+        </form>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            var selectedImage = document.getElementById('selected-image');
+            selectedImage.style.display = 'block';
+            selectedImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial Recognition Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background color */
+            color: #333333; /* Dark gray text color */
+        }
+        .result-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background color for the result container */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+        }
+        .success {
+            color: #4CAF50; /* Green text color for success message */
+        }
+        .error {
+            color: #FF0000; /* Red text color for error message */
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Facial Recognition Result</h1>
+        {% if recognized_faces %}
+            <p class="success">Found Person: {{ recognized_faces[0] }}</p>
+        {% else %}
+            <p class="error">Person cannot be recognized</p>
+        {% endif %}
+    </div>
+</body>
+</html>
