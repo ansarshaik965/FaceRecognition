@@ -1,4 +1,4 @@
 Flask>=2.2.2
-boto3==2.34.69 
+boto3==1.34.69 
 Pillow
 image
