@@ -17,13 +17,6 @@ RUN apt-get update && apt-get install -y \
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy environment file
-#COPY credentials.env /app
-
-# Set environment variables
-#ENV AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-#ENV AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-
 # Copy the Apache2 configuration file
 COPY apache2.conf /etc/apache2/sites-available/000-default.conf
 
