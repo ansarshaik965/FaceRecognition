@@ -2,11 +2,24 @@ from flask import Flask, render_template, request
 import boto3
 import io
 from PIL import Image
+import os
 
 app = Flask(__name__)
 
-rekognition = boto3.client('rekognition', region_name='us-east-1')
-dynamodb = boto3.client('dynamodb', region_name='us-east-1')
+# Get AWS credentials from environment variables
+AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+
+# Initialize AWS clients
+rekognition = boto3.client('rekognition', region_name='us-east-1',
+                           aws_access_key_id=AWS_ACCESS_KEY_ID,
+                           aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+dynamodb = boto3.client('dynamodb', region_name='us-east-1',
+                        aws_access_key_id=AWS_ACCESS_KEY_ID,
+                        aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
+
+#rekognition = session.client('rekognition', region_name='us-east-1')
+#dynamodb = session.client('dynamodb', region_name='us-east-1')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -45,4 +58,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
