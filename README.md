@@ -1,4 +1,4 @@
-Video Link: https://youtu.be/oHSesteFK5c
+Video Link: https://youtu.be/AW_G_X5Q3z4
 
 Install aws-shell
 
