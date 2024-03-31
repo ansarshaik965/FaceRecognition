@@ -10,7 +10,7 @@ Configure
 
 Create a collection on aws rekognition
 
-    aws rekognition create-collection --collection-id facerecognition_collection --region us-east-1
+    aws rekognition create-collection --collection-id cricketers_collection --region us-east-1
 
 Create table on DynamoDB
 
