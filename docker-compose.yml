@@ -1,0 +1,9 @@
+version: '3.2'
+services:
+  faceapp:
+    image: ansarshaik965/faceapp
+    ports:
+      - '80:80'
+    environment:
+      AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
